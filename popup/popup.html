@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>PromptRisk-BN</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header class="header">
+    <span class="shield" aria-hidden="true">
+      <svg width="18" height="18" viewBox="0 0 16 16" fill="none">
+        <path d="M8 1.5l5.5 2v4c0 4-2.4 6.3-5.5 7-3.1-.7-5.5-3-5.5-7v-4l5.5-2z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
+        <rect x="5.7" y="7.3" width="4.6" height="3.6" rx="0.6" stroke="currentColor" stroke-width="1.2"/>
+        <path d="M6.6 7.3V6.1a1.4 1.4 0 0 1 2.8 0v1.2" stroke="currentColor" stroke-width="1.2"/>
+      </svg>
+    </span>
+    <h1>PromptRisk-BN</h1>
+  </header>
+
+  <section class="section">
+    <h2>Detection categories</h2>
+    <label class="row"><input type="checkbox" id="cat-R1" data-cat="R1" /> Identity (NID, e-TIN, passport)</label>
+    <label class="row"><input type="checkbox" id="cat-R2" data-cat="R2" /> Contact (phone, email)</label>
+    <label class="row"><input type="checkbox" id="cat-R3" data-cat="R3" /> Financial (bKash/Nagad, card numbers)</label>
+    <label class="row"><input type="checkbox" id="cat-R4" data-cat="R4" /> Credentials &amp; secrets (keys, tokens)</label>
+    <label class="row"><input type="checkbox" id="cat-R5" data-cat="R5" /> Network &amp; technical (IP addresses)</label>
+  </section>
+
+  <section class="section">
+    <h2>Enabled sites</h2>
+    <label class="row"><input type="checkbox" id="site-claude" /> Claude</label>
+    <label class="row"><input type="checkbox" id="site-chatgpt" /> ChatGPT</label>
+    <label class="row"><input type="checkbox" id="site-gemini" /> Gemini</label>
+  </section>
+
+  <section class="section">
+    <h2>Send behavior</h2>
+    <label class="row"><input type="checkbox" id="block-on-high" /> Block sending when high-risk data is present</label>
+    <label class="row"><input type="checkbox" id="show-clean-state" /> Show "safe to send" confirmation</label>
+  </section>
+
+  <footer class="footer">
+    <span class="lock" aria-hidden="true">
+      <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+        <rect x="3.5" y="7" width="9" height="7" rx="1" stroke="currentColor" stroke-width="1.2"/>
+        <path d="M5.2 7V5.2a2.8 2.8 0 0 1 5.6 0V7" stroke="currentColor" stroke-width="1.2"/>
+      </svg>
+    </span>
+    local only · nothing leaves your browser
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

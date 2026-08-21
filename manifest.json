@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "PromptRisk-BN",
+  "version": "0.1.0",
+  "description": "Local DLP for LLM prompts — warns before you send sensitive data to Claude, ChatGPT, or Gemini.",
+  "permissions": ["storage"],
+  "action": { "default_popup": "popup/popup.html", "default_title": "PromptRisk-BN" },
+  "icons": { "16": "icons/16.png", "32": "icons/32.png", "48": "icons/48.png", "128": "icons/128.png" },
+  "content_scripts": [{
+    "matches": [
+      "https://claude.ai/*",
+      "https://chatgpt.com/*",
+      "https://chat.openai.com/*",
+      "https://gemini.google.com/*"
+    ],
+    "js": ["src/patterns.js", "src/engine.js", "src/adapters.js", "src/ui.js", "src/content.js"],
+    "run_at": "document_idle"
+  }]
+}
